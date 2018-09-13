@@ -1,35 +1,11 @@
-import axios from "axios";
-
-// export default{
-//   let testitiit = async () => {
-//     let categories = await axios.get("https://api.chucknorris.io/jokes/categories");
-//     // let facts =
-
-//     return {
-//       categories: categories
-//     }
-//   }
-// }
+import axios from 'axios';
 
 export const getCategories = () => {
-  return axios.get("https://api.chucknorris.io/jokes/categories");
-  // .then(resp => {
-  //   // console.log('TCL: getCategories -> resp', resp);
-  //   return resp.data;
-  // })
-  // .catch(e => {
-  //   return e;
-  // });
+  return axios.get('https://api.chucknorris.io/jokes/categories');
 };
 
 export const getFacts = category => {
   return axios.get(
-    "https://api.chucknorris.io/jokes/random?category=" + category
+    'https://api.chucknorris.io/jokes/random?category=' + category
   );
-  // .then(resp => {
-  //   return resp.data;
-  // })
-  // .catch(e => {
-  //   return e;
-  // });
 };

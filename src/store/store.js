@@ -1,15 +1,10 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-// import { apiData } from '../api/api.js';
-// import axios from 'axios';
 import { getCategories, getFacts } from '../api/api.js';
-// getCategories().then(res=>{
-// console.log('TCL: res', res);
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  // debug: true,
   state: {
     categories: [],
     facts: [
@@ -50,22 +45,9 @@ export default new Vuex.Store({
     travelFavoritesCount(state, getters) {
       return state.travelFavorites[0].count;
     }
-
-    //data functions, map...etc
-    // favCategories: state => {
-    //   // return state.categories.map(val => {
-    //   //     if (val == 'dev' || val == 'music' || val == 'money'){
-    //   //         return val;
-    //   //     }
-    //   // })
-    // },
-    // test2: zzz => {}
   },
   mutations: {
     filterCategory: (state, data) => {
-      // console.log('TCL: data', data.data);
-      // state.categories = data.data;
-      // console.log('TCL: state', state);
       state.categories = data.data.filter(val => {
         if (val == 'dev' || val == 'music' || val == 'travel') {
           return val;
@@ -73,7 +55,6 @@ export default new Vuex.Store({
       });
     },
     addFacts: (state, data) => {
-      // console.log('TCL: data', data);
       data.forEach(element => {
         state.facts[0].value.push(element.data.value);
         state.facts[0].category = element.data.category;
@@ -83,7 +64,6 @@ export default new Vuex.Store({
       state.facts[0].value = [];
     },
     addFavorite: (state, data) => {
-      // category = data.category
       let category = data.category;
       let i = data.index;
       let fact = data.fact;
@@ -95,10 +75,10 @@ export default new Vuex.Store({
           }
           break;
         case 'music':
-            if (state.musicFavorites[0].value.indexOf(fact) === -1) {
-              state.musicFavorites[0].count += 1;
-              state.musicFavorites[0].value.push(fact);
-            }
+          if (state.musicFavorites[0].value.indexOf(fact) === -1) {
+            state.musicFavorites[0].count += 1;
+            state.musicFavorites[0].value.push(fact);
+          }
           break;
         case 'travel':
           if (state.travelFavorites[0].value.indexOf(fact) === -1) {
@@ -131,7 +111,5 @@ export default new Vuex.Store({
     favoritesAction: (context, { category, index, fact }) => {
       context.commit('addFavorite', { category, index, fact });
     }
-    //async, commit mutation an dispatch it to component asynchronously
-    // dispatch in component
   }
 });
