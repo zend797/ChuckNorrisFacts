@@ -1,13 +1,17 @@
 <template>
-  <div id="fact">
-    <h3>Fact: </h3>
-    <ul v-for="(fact, index) in facts" :key="index" >
-      <!-- <li> -->
-        <i class="material-icons" @click="addToFavorites(index, factCategory, fact)">star_border</i>
-        <span >{{fact}}</span>
-      <!-- </li> -->
-    </ul>
-  </div>
+  <v-container grid-list-md>
+    <v-layout row wrap>
+      <div id="fact">
+        <h3>Fact: </h3>
+        <ul v-for="(fact, index) in facts" :key="index" >
+          <v-btn flat icon color="amber lighten-1" @click="addToFavorites(index, factCategory, fact)">
+            <v-icon class="material-icons">star_border</v-icon>
+          </v-btn>
+          <span >{{fact}}</span>
+        </ul>
+      </div>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
@@ -24,7 +28,7 @@ export default {
   },
   methods: {
     addToFavorites(index, category, fact) {
-      this.$store.dispatch('favoritesAction', {category, index, fact});
+      this.$store.dispatch('favoritesAction', { category, index, fact });
     }
   }
   // data () {

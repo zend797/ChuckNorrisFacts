@@ -4,7 +4,7 @@ import App from './components/App.vue';
 import store from './store/store';
 // import Vuetify from 'vuetify';
 const Vuetify = require('vuetify');
-// import 'vuetify/dist/vuetify.min.css';
+import 'vuetify/dist/vuetify.min.css';
 // import 'material-design-icons-iconfont/dist/material-design-icons.css';
 
 Vue.use(Vuetify);

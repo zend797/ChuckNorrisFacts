@@ -122,7 +122,6 @@ export default new Vuex.Store({
       const fact3 = getFacts(category);
       Promise.all([fact1, fact2, fact3])
         .then(resp => {
-          console.log('TCL: resp', resp);
           context.commit('addFacts', resp);
         })
         .catch(err => {

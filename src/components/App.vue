@@ -1,8 +1,14 @@
 <template>
-  <div id="app">
-    <!-- <img src="../assets/norrischuck.png"> -->
-    <categies></categies>
-  </div>
+  <v-app>
+    <v-content>
+      <div id="app">
+        <v-container>
+          <img src="../assets/norrischuck.png">
+        </v-container>
+        <categies></categies>
+      </div>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
@@ -12,7 +18,6 @@ import Fact from './Fact.vue';
 export default {
   components: {
     categies: Categories
-    // 'fact': Fact
   },
   name: 'app'
 };

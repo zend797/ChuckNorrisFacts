@@ -1,23 +1,31 @@
 <template>
-  <div id="categories">
-    <h2>Category</h2>
-    <!-- <span>apiresp: {{displayCat}}</span> -->
-    <!-- <ul> -->
-      <!-- <li v-for="name in testing" v-bind:key="name.name" > -->
-      <div class="category-selection" v-for="(value) in categories" :key="value" :value="categories.value">
-        <v-btn>
-          <span @click="getFacts(value)" >{{value}}</span>
-        </v-btn>
-        <i class="material-icons">star</i>
-        <span class="fav-count" v-if="value === 'dev'">{{devFavoritesCount}}</span>
-        <span class="fav-count" v-if="value === 'music'">{{musicFavoritesCount}}</span>
-        <span class="fav-count" v-if="value === 'travel'">{{travelFavoritesCount}}</span>
-        <!-- <span>Favorites:{{devFavoritesCount}} </span>  -->
-      </div>
-    <!-- </ul> -->
-    <hr>
-    <fact></fact>
-  </div>
+  <v-container grid-list-md>
+      <v-layout row wrap>
+        <v-flex xs12>
+          <div id="categories">
+            <h1>Category</h1>
+            <!-- <span>apiresp: {{displayCat}}</span> -->
+            <!-- <ul> -->
+              <!-- <li v-for="name in testing" v-bind:key="name.name" > -->
+              <div class="category-selection" v-for="(value) in categories" :key="value" :value="categories.value">
+                <v-btn @click="getFacts(value)">
+                  <span  >{{value}}</span>
+                </v-btn>
+                <v-icon color="amber darken-1" class="material-icons">star</v-icon>
+                <span class="fav-count" v-if="value === 'dev'">{{devFavoritesCount}}</span>
+                <span class="fav-count" v-if="value === 'music'">{{musicFavoritesCount}}</span>
+                <span class="fav-count" v-if="value === 'travel'">{{travelFavoritesCount}}</span>
+                <!-- <span>Favorites:{{devFavoritesCount}} </span>  -->
+              </div>
+            <!-- </ul> -->
+            <hr>
+          </div>
+        </v-flex>
+          <fact></fact>
+      </v-layout>
+  </v-container>
+        <!-- <v-flex xs6> -->
+        <!-- </v-flex> -->
 </template>
 
 <script>
@@ -30,7 +38,7 @@ export default {
   components: {
     fact: Fact
   },
-  created() {
+  mounted() {
     this.$store.dispatch('categoriesAction');
   },
   computed: {
@@ -45,8 +53,8 @@ export default {
 
   methods: {
     getFacts(val) {
-      // console.log(e.target.name);
       console.log(val);
+      // console.log(e.target.name);
       // for (let i = 0; i < 3; i++) {
       this.$store.dispatch('factsAction', val);
       // }
