@@ -1,6 +1,8 @@
 <template>
   <v-card >
-    <h3>Facts...</h3>
+    <v-card-title primary-title>
+      <h3>Facts...</h3>
+    </v-card-title>
     <ul v-for="(fact, index) in facts" :key="index" >
       <v-btn flat icon color="amber lighten-1" @click="addToFavorites(index, factCategory, fact)">
         <v-icon class="material-icons">star_border</v-icon>
