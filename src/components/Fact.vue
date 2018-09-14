@@ -1,5 +1,5 @@
 <template>
-  <div id="fact">
+  <v-card >
     <h3>Facts...</h3>
     <ul v-for="(fact, index) in facts" :key="index" >
       <v-btn flat icon color="amber lighten-1" @click="addToFavorites(index, factCategory, fact)">
@@ -7,7 +7,7 @@
       </v-btn>
       <span >{{fact}}</span>
     </ul>
-  </div>
+  </v-card>
 </template>
 
 <script>

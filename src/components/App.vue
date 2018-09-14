@@ -2,19 +2,19 @@
   <v-app>
     <v-content>
       <div id="app">
-        <v-container grid-list-md text-xs-center>
-          <v-layaout row wrap>
+        <v-container grid-list-md text-xs-center pa-1>
+          <v-layout row wrap>
             <v-flex xs12>
               <img src="../assets/norrischuck.png">
             </v-flex>
-          </v-layaout>
+          </v-layout>
         </v-container>
-        <v-container grid-list-md text-xs-center class="welcome">
-          <v-layaout row wrap>
+        <v-container grid-list-md text-xs-center class="welcome" pa-0>
+          <v-layout row wrap>
             <v-flex xs12>
               <h2>Welcome to Chuck Norris facts</h2>
             </v-flex>
-          </v-layaout>
+          </v-layout>
         </v-container>
         <categies></categies>
       </div>
@@ -66,7 +66,7 @@ img {
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
-#categories > .material-icons {
+.categories > .material-icons {
   font-size: 22px;
 }
 .fav-count {

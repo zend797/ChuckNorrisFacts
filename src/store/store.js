@@ -17,33 +17,37 @@ export default new Vuex.Store({
       {
         count: null,
         index: [],
-        value: []
+        value: [],
+        show: false
       }
     ],
     musicFavorites: [
       {
         count: null,
         index: [],
-        value: []
+        value: [],
+        show: false
+
       }
     ],
     travelFavorites: [
       {
         count: null,
         index: [],
-        value: []
+        value: [],
+        show: false
       }
     ]
   },
   getters: {
     devFavoritesCount(state) {
-      return state.devFavorites[0].count;
+      return state.devFavorites[0];
     },
     musicFavoritesCount(state) {
-      return state.musicFavorites[0].count;
+      return state.musicFavorites[0];
     },
-    travelFavoritesCount(state, getters) {
-      return state.travelFavorites[0].count;
+    travelFavoritesCount(state) {
+      return state.travelFavorites[0];
     }
   },
   mutations: {
@@ -72,18 +76,24 @@ export default new Vuex.Store({
           if (state.devFavorites[0].value.indexOf(fact) === -1) {
             state.devFavorites[0].count += 1;
             state.devFavorites[0].value.push(fact);
+            state.devFavorites[0].value.push(i);
+            state.devFavorites[0].show = true;
           }
           break;
         case 'music':
           if (state.musicFavorites[0].value.indexOf(fact) === -1) {
             state.musicFavorites[0].count += 1;
             state.musicFavorites[0].value.push(fact);
+            state.musicFavorites[0].value.push(i);
+            state.musicFavorites[0].show = true;
           }
           break;
         case 'travel':
           if (state.travelFavorites[0].value.indexOf(fact) === -1) {
             state.travelFavorites[0].count += 1;
             state.travelFavorites[0].value.push(fact);
+            state.travelFavorites[0].value.push(i);
+            state.travelFavorites[0].show = true;
           }
           break;
       }
