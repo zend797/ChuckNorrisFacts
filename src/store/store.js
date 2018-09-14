@@ -37,7 +37,10 @@ export default new Vuex.Store({
         value: [],
         show: false
       }
-    ]
+    ],
+    favorite:{
+      added: false
+    }
   },
   getters: {
     devFavoritesCount(state) {
@@ -48,6 +51,9 @@ export default new Vuex.Store({
     },
     travelFavoritesCount(state) {
       return state.travelFavorites[0];
+    },
+    favorites(state) {
+      return state.favorite;
     }
   },
   mutations: {
@@ -71,6 +77,7 @@ export default new Vuex.Store({
       let category = data.category;
       let i = data.index;
       let fact = data.fact;
+      state.favorite.added = true;
       switch (category) {
         case 'dev':
           if (state.devFavorites[0].value.indexOf(fact) === -1) {

@@ -9,7 +9,7 @@
           </v-card-title>
         </v-flex>
 
-        <v-flex xs2 class="text-xs-center" pa-0>
+        <v-flex xs1 class="text-xs-right" pa-0>
           <v-card-text class="category-selection" v-for="(value) in categories" :key="value" :value="categories.value">
             <v-btn class="text-xs-right" @click="getFacts(value)">
               <span  >{{value}}</span>
@@ -17,24 +17,23 @@
           </v-card-text>
         </v-flex>
 
-        <v-flex xs2  justify-center pa-0>
-          <v-card-text class="text-xs-left fact-section">
+        <v-flex v-show="favorites.added == true" xs2 justify-center pa-0>
+          <v-card-text class="text-xs-left fact-section"> 
             <v-card-text class="fact-section2">
               <v-icon color="amber darken-1" class="material-icons">star</v-icon>
               <span class="fav-count" ><strong>{{devFavoritesCount.count}}</strong></span>
             </v-card-text>
           </v-card-text>
 
-          <v-card-text  class="text-xs-left fact-section">
+          <v-card-text class="text-xs-left fact-section"> 
             <v-card-text class="fact-section2">
               <v-icon color="amber darken-1" class="material-icons">star</v-icon>
-              <span class="fav-count" >
-                <strong>{{musicFavoritesCount.count}}</strong>
+              <span class="fav-count" ><strong>{{musicFavoritesCount.count}}</strong>
               </span>
             </v-card-text>
           </v-card-text>
 
-          <v-card-text  class="text-xs-left fact-section">
+          <v-card-text class="text-xs-left fact-section"> 
             <v-card-text class="fact-section2" >
               <v-icon color="amber darken-1" class="material-icons">star</v-icon>
               <span class="fav-count"><strong>{{travelFavoritesCount.count}}</strong></span>
@@ -68,7 +67,8 @@ export default {
     ...mapGetters([
       'devFavoritesCount',
       'musicFavoritesCount',
-      'travelFavoritesCount'
+      'travelFavoritesCount',
+      'favorites'
     ])
   },
 
