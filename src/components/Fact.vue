@@ -1,5 +1,5 @@
 <template>
-  <v-card >
+  <v-card>
     <v-card-title primary-title>
       <h3>Facts...</h3>
     </v-card-title>
