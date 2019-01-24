@@ -1,15 +1,15 @@
 <template>
   <v-container grid-list-md pa-1>
       <v-layout row wrap>
-        <v-flex xs12>
-          <v-card-title primary-title>
+        <v-flex xs12 class="text-xs-center">
+          <v-card-title primary-title >
             <h3>
               Select fact category:
             </h3> 
           </v-card-title>
         </v-flex>
 
-        <v-flex xs1 class="text-xs-right" pa-0>
+        <v-flex xs2 class="text-xs-right" pa-0>
           <v-card-text class="category-selection" v-for="(value) in categories" :key="value" :value="categories.value">
             <v-btn class="text-xs-right" @click="getFacts(value)">
               <span  >{{value}}</span>
@@ -17,7 +17,8 @@
           </v-card-text>
         </v-flex>
 
-        <v-flex v-show="favorites.added == true" xs2 justify-center pa-0>
+        <v-flex xs3 justify-center pa-0>
+
           <v-card-text class="text-xs-left fact-section">
             <v-card-text class="fact-section2">
               <v-icon v-show="devFavoritesCount.show == true"  color="amber darken-1" class="material-icons">star</v-icon>
